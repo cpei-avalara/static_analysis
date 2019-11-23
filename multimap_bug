@@ -1,0 +1,16 @@
+#include <map>
+
+int main() {
+multimap<int, int> test;
+
+test.emplace(1, 2);
+test.emplace(2,3);
+test.emplace(3,3);
+test.emplace(4,5);
+
+auto range = test.equal_range(3);
+for (auto i = range.first; i != range.second; ++i) {
+if (i->second == 3) test.erase(i);
+}
+
+}
